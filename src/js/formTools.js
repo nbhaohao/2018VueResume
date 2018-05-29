@@ -12,5 +12,6 @@ window.FORM_TOOLS = {
             return callback(new Error('密码至少8位，且包含一个字母和数字'))
         }
         return callback()
-    }
+    },
 }
+window.FORM_TOOLS.EVENT_HUB_TOOL = new Vue()

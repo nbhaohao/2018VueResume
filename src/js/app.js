@@ -12,12 +12,15 @@
                 skills: "我的主要技能",
                 hobby: "我的爱好",
                 study: "我的教育经历",
-                projects: [
-                    {text: "项目经历"},
-                ],
-                jobs: [
-                    {text: "工作经历"},
-                ],
+                projects: ["项目经历1", "项目经历2"],
+                jobs:  ["工作经历1", "工作经历2"],
+                moduleCheckGroup: {
+                    skillsCheck: true,
+                    projectsCheck: true,
+                    jobsCheck: true,
+                    hobbyCheck: true,
+                    studyCheck: true,
+                },
             },
             registerDialog: false,
             loginDialog: false,
@@ -27,7 +30,7 @@
             },
         },
         computed: {
-            isLogin: function() {
+            isLogin: function () {
                 return this.currentUser.email
             }
         },
@@ -98,6 +101,15 @@
             },
         },
         created() {
+            window.FORM_TOOLS.EVENT_HUB_TOOL.$on("update-resume-data", (name, value) => {
+                this.updateResume(name, value)
+            })
+            window.FORM_TOOLS.EVENT_HUB_TOOL.$on("delete-resume-data", (name, index) => {
+                this.resume[name].splice(index, 1)
+            })
+            window.FORM_TOOLS.EVENT_HUB_TOOL.$on("add-resume-data", (name) => {
+                this.resume[name].push("新增标签")
+            })
             let currentUser = AV.User.current()
             if (currentUser) {
                 this.currentUser.id = currentUser.id

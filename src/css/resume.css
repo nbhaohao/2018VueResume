@@ -39,7 +39,7 @@
 .resume .el-input__inner, .resume .el-input__inner:hover, .resume .el-textarea__inner, .resume .el-textarea__inner:hover {border-color: transparent;}
 .resume .el-input__inner:focus, .resume .el-textarea__inner:focus {border-color:#409EFF;}
 
-.resume .span-c-red-close {cursor: pointer;margin-left: 4px;display: none;}
-.resume .span-c-red-close.active {display: inline-block;}
-.resume .span-c-red-close > svg {width: 20px;height: 20px;}
+.resume .span-c-red-close, .resume .span-c-green-add {cursor: pointer;margin-left: 4px;}
+.resume .span-c-red-close > svg, .resume .span-c-green-add > svg {width: 20px;height: 20px;}
+.resume .span-c-green-add {position: absolute;right: 0;top: 50%;transform: translateY(-50%);}
 .resume .div-c-projectItem {position: relative;display: flex;align-items: center;}

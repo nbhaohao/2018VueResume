@@ -1,6 +1,6 @@
 {
     Vue.component("aside-bar", {
-        props: ["isLogin", "userName"],
+        props: ["isLogin", "userName", "checkStatus"],
         template: `
             <aside>
                 <div class="inner">
@@ -38,11 +38,11 @@
                         </li>
                     </ul>
                     <ul class="ul-c-checkboxGroup">
-                        <el-checkbox label="主要技能" border size="medium"></el-checkbox>
-                        <el-checkbox label="项目经验" border size="medium"></el-checkbox>
-                        <el-checkbox label="工作经历" border size="medium"></el-checkbox>
-                        <el-checkbox label="兴趣爱好" border size="medium"></el-checkbox>
-                        <el-checkbox label="教育背景" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.skillsCheck', $event)" :checked="checkStatus.skillsCheck" label="主要技能" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.projectsCheck', $event)" :checked="checkStatus.projectsCheck" label="项目经验" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.jobsCheck', $event)" :checked="checkStatus.jobsCheck" label="工作经历" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.hobbyCheck', $event)" :checked="checkStatus.hobbyCheck" label="兴趣爱好" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.studyCheck', $event)" :checked="checkStatus.studyCheck" label="教育背景" border size="medium"></el-checkbox>
                     </ul>
                     <div class="bottom">
                         <span v-if="isLogin">
@@ -63,6 +63,9 @@
             },
             showPrint() {
                 window.print()
+            },
+            changeCheckStatus(name, value) {
+                window.FORM_TOOLS.EVENT_HUB_TOOL.$emit("update-resume-data", name, value)
             }
         },
         data() {

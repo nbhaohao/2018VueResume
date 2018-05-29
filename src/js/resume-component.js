@@ -43,74 +43,53 @@
                     <el-input maxlength="2" class="info-text" :value="resume.gender" @input="$emit('update-resume', 'gender', $event)"></el-input>
                 </span>
             </div>
-            <div class="importantList">
-                <div class="skills important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-skills"></use>
-                            </svg>
+                <div class="importantList">
+                    <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight" >
+                        <div v-show="resume.moduleCheckGroup.skillsCheck" class="skills important-contenrt-wrapper">
+                            <div class="titleWrapper">
+                                <div class="svg-circle-wrapper">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-skills"></use>
+                                    </svg>
+                                </div>
+                                <h3>主要技能</h3>
+                            </div>
+                            <el-input :value="resume.skills" @input="$emit('update-resume', 'skills', $event)" type="textarea" :autosize="true"></el-input>
                         </div>
-                        <h3>主要技能</h3>
-                    </div>
-                    <el-input :value="resume.skills" @input="$emit('update-resume', 'skills', $event)" type="textarea" :autosize="true"></el-input>
+                    </transition>
+                    <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight" >
+                        <list-wrapper v-show="resume.moduleCheckGroup.projectsCheck" :icon-class="'icon-project'" :title="'项目经验'" :wrapper-class="'project'" :list-class="'projectList'" :data="resume.projects" :targetData="'projects.'"></list-wrapper>
+                    </transition>
+                    <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight" >
+                    <list-wrapper v-show="resume.moduleCheckGroup.jobsCheck" :icon-class="'icon-job'" :title="'工作经历'" :wrapper-class="'job'" :list-class="'jobsList'" :data="resume.jobs" :targetData="'jobs.'"></list-wrapper>
+                    </transition>
+                    <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight" >
+                        <div v-show="resume.moduleCheckGroup.hobbyCheck" class="hobby important-contenrt-wrapper">
+                            <div class="titleWrapper">
+                                <div class="svg-circle-wrapper">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-hobby"></use>
+                                    </svg>
+                                </div>
+                                <h3>兴趣爱好</h3>
+                            </div>
+                            <el-input :value="resume.hobby" @input="$emit('update-resume', 'hobby', $event)" type="textarea" :autosize="true">
+                        </div>
+                    </transition>
+                    <transition enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight" >
+                        <div v-show="resume.moduleCheckGroup.studyCheck" class="study important-contenrt-wrapper">
+                            <div class="titleWrapper">
+                                <div class="svg-circle-wrapper">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-study"></use>
+                                    </svg>
+                                </div>
+                                <h3>教育背景</h3>
+                            </div>
+                         <el-input :value="resume.study" @input="$emit('update-resume', 'study', $event)" type="textarea" :autosize="true">
+                        </div>
+                    </transition>
                 </div>
-                <div class="project important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-project"></use>
-                            </svg>
-                        </div>
-                        <h3>项目经验</h3>
-                    </div>
-                    <div class="projectList">
-                        <div class="div-c-projectItem" v-for="(project,index) in resume.projects" :key="index">
-                            <el-input :value="project.text" @input="$emit('update-resume', 'projects.' + index + '.text', $event)" type="textarea" :autosize="true"></el-input>
-                            <span class="span-c-red-close">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="job important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-job"></use>
-                            </svg>
-                        </div>
-                        <h3>工作经历</h3>
-                    </div>
-                    <div class="jobsList">
-                        <el-input v-for="(job,index) in resume.jobs" :key="index" :value="job.text" @input="$emit('update-resume', 'jobs.' + index + '.text', $event)" type="textarea" :autosize="true"></el-input>
-                    </div>
-                </div>
-                <div class="hobby important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-hobby"></use>
-                            </svg>
-                        </div>
-                        <h3>兴趣爱好</h3>
-                    </div>
-                    <el-input :value="resume.hobby" @input="$emit('update-resume', 'hobby', $event)" type="textarea" :autosize="true">
-                </div>
-                <div class="study important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-study"></use>
-                            </svg>
-                        </div>
-                        <h3>教育背景</h3>
-                    </div>
-                 <el-input :value="resume.study" @input="$emit('update-resume', 'study', $event)" type="textarea" :autosize="true">
-                </div>
-            </div>
             <div class="bottom-colorpart">
                 <div class="whitepart"></div>
             </div>
