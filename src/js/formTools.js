@@ -13,5 +13,10 @@ window.FORM_TOOLS = {
         }
         return callback()
     },
+    getQueryByName: function (url,name){
+        var reg=new RegExp('[?&]'+name+'=([^&#]+)');
+        var query=url.match(reg);
+        return query?query[1]:null;
+    },
 }
 window.FORM_TOOLS.EVENT_HUB_TOOL = new Vue()

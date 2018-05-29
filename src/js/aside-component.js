@@ -18,19 +18,13 @@
                             </svg>
                             <span>打印</span>
                         </li>
-                        <li>
+                        <li @click="saveResume">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-baocun"></use>
                             </svg>
                             <span>保存</span>
                         </li>
-                        <li>
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-theme"></use>
-                            </svg>
-                            <span>更换主题</span>
-                        </li>
-                        <li>
+                        <li @click="shareResume">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-share"></use>
                             </svg>
@@ -38,11 +32,11 @@
                         </li>
                     </ul>
                     <ul class="ul-c-checkboxGroup">
-                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.skillsCheck', $event)" :checked="checkStatus.skillsCheck" label="主要技能" border size="medium"></el-checkbox>
-                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.projectsCheck', $event)" :checked="checkStatus.projectsCheck" label="项目经验" border size="medium"></el-checkbox>
-                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.jobsCheck', $event)" :checked="checkStatus.jobsCheck" label="工作经历" border size="medium"></el-checkbox>
-                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.hobbyCheck', $event)" :checked="checkStatus.hobbyCheck" label="兴趣爱好" border size="medium"></el-checkbox>
-                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.studyCheck', $event)" :checked="checkStatus.studyCheck" label="教育背景" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.skillsCheck', $event)" :value="checkStatus.skillsCheck" label="主要技能" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.projectsCheck', $event)" :value="checkStatus.projectsCheck" label="项目经验" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.jobsCheck', $event)" :value="checkStatus.jobsCheck" label="工作经历" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.hobbyCheck', $event)" :value="checkStatus.hobbyCheck" label="兴趣爱好" border size="medium"></el-checkbox>
+                        <el-checkbox @change="changeCheckStatus('moduleCheckGroup.studyCheck', $event)" :value="checkStatus.studyCheck" label="教育背景" border size="medium"></el-checkbox>
                     </ul>
                     <div class="bottom">
                         <span v-if="isLogin">
@@ -62,7 +56,26 @@
                 this.$emit("login-out", "")
             },
             showPrint() {
+                let allPrintDiv = document.querySelectorAll(".print-div")
+                for (let i = 0; i < allPrintDiv.length; i++) {
+                    let item = allPrintDiv[i]
+                    item.innerHTML = item.parentElement.querySelector(".el-textarea__inner").value.replace(new RegExp("\n","gm"), "<br>")
+                }
                 window.print()
+            },
+            saveResume() {
+                if (!this.isLogin) {
+                    this.$message.error("请先登录后再进行保存操作")
+                    return
+                }
+                window.FORM_TOOLS.EVENT_HUB_TOOL.$emit("save-resume-data", "")
+            },
+            shareResume() {
+                if (!this.isLogin) {
+                    this.$message.error("请先登录后再进行分享操作")
+                    return
+                }
+                window.FORM_TOOLS.EVENT_HUB_TOOL.$emit("share-resume-data", "")
             },
             changeCheckStatus(name, value) {
                 window.FORM_TOOLS.EVENT_HUB_TOOL.$emit("update-resume-data", name, value)
@@ -71,6 +84,7 @@
         data() {
             return {}
         },
-        created() {}
+        created() {
+        }
     })
 }

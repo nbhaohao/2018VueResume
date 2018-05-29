@@ -1,5 +1,5 @@
 Vue.component("list-wrapper", {
-    props: ["iconClass", "title", "wrapperClass", "listClass", "data", "targetData"],
+    props: ["iconClass", "title", "wrapperClass", "listClass", "data", "targetData", "isPreview"],
     template: `
         <div v-on:mouseenter="toggleAddBtn('show')" v-on:mouseleave="toggleAddBtn('hide')" class="important-contenrt-wrapper" :class="wrapperClass">
             <div class="titleWrapper">
@@ -18,7 +18,9 @@ Vue.component("list-wrapper", {
                 </transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             </div>
             <div :class="listClass">
-                <del-btn-textarea v-for="(item, index) in data" :key="index" :target-data='targetData + index' :value="item"></del-btn-textarea>
+                <template v-for="(item, index) in data" :key="index">
+                    <del-btn-textarea :is-preview="isPreview"  :target-data='targetData + index' :value="item"></del-btn-textarea>
+                </template>
             </div>
         </div>
     `,
@@ -28,6 +30,7 @@ Vue.component("list-wrapper", {
             window.FORM_TOOLS.EVENT_HUB_TOOL.$emit("add-resume-data", data)
         },
         toggleAddBtn(status) {
+            if (this.isPreview) {return}
             if (status === "show") {
                 this.isAddBtnVisible = true
             } else {

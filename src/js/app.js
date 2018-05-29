@@ -3,6 +3,26 @@
         el: "#app",
         data: {
             resume: {
+                name: "",
+                targetJob: "",
+                birthday: "",
+                phone: "",
+                email: "",
+                gender: "",
+                skills: "",
+                hobby: "",
+                study: "",
+                projects: [],
+                jobs:  [],
+                moduleCheckGroup: {
+                    skillsCheck: false,
+                    projectsCheck: false,
+                    jobsCheck: false,
+                    hobbyCheck: false,
+                    studyCheck: false,
+                },
+            },
+            defaultResume: {
                 name: "姓名",
                 targetJob: "前端开发",
                 birthday: "1996年7月10日",
@@ -22,17 +42,39 @@
                     studyCheck: true,
                 },
             },
+            animationFlag: false,
             registerDialog: false,
             loginDialog: false,
+            fullscreenLoading: false,
             currentUser: {
                 email: "",
                 id: "",
             },
+            isPreView: false,
         },
         computed: {
             isLogin: function () {
                 return this.currentUser.email
-            }
+            },
+            shareLink: function() {
+                return location.origin + location.pathname + `?user_id=${this.currentUser.id}`
+            },
+        },
+        watch: {
+           'currentUser.id': function(value) {
+               if (!value) {
+                   let defaultValue = JSON.stringify(this.defaultResume)
+                   Object.assign(this.resume, JSON.parse(defaultValue))
+                   return
+               }
+               var query = new AV.Query('User')
+               query.get(value).then((user) => {
+                    Object.assign(this.resume, user.attributes.resume)
+                   this.animationFlag = true
+                   },(error) => {
+                   this.$message.error('网络异常')
+               })
+           }
         },
         methods: {
             updateResume(name, value) {
@@ -110,10 +152,32 @@
             window.FORM_TOOLS.EVENT_HUB_TOOL.$on("add-resume-data", (name) => {
                 this.resume[name].push("新增标签")
             })
+            window.FORM_TOOLS.EVENT_HUB_TOOL.$on("save-resume-data", () => {
+                var todo = AV.Object.createWithoutData('User', this.currentUser.id)
+                todo.set('resume', this.resume)
+                todo.save().then((data) => {
+                    this.$message({message: '保存成功！', type: 'success'});
+                }, (error) => {this.$message.error("网络异常")})
+            })
+            window.FORM_TOOLS.EVENT_HUB_TOOL.$on("share-resume-data", () => {
+                this.$alert(this.shareLink, '分享链接', {
+                    confirmButtonText: '确定',
+                });
+            })
+            let shareUser = window.FORM_TOOLS.getQueryByName(window.location.href, "user_id")
+            if (shareUser) {
+                this.isPreView = true
+                this.currentUser.id = shareUser
+                return
+            }
             let currentUser = AV.User.current()
             if (currentUser) {
                 this.currentUser.id = currentUser.id
                 this.currentUser.email = currentUser.attributes.email
+            } else {
+                let defaultCopy = JSON.stringify(this.defaultResume)
+                Object.assign(this.resume, JSON.parse(defaultCopy))
+                this.animationFlag = true
             }
         },
     })

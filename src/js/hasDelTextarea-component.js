@@ -1,8 +1,8 @@
 Vue.component("del-btn-textarea", {
-    props: ["value", "targetData"],
+    props: ["value", "targetData", "isPreview"],
     template: `
         <div class="div-c-projectItem">
-            <el-input @input="updateParentData" @focus="toggleDelBtn('show')" :value="value" @blur="toggleDelBtn('hide')" type="textarea" :autosize="true"></el-input>
+            <el-input :disabled="isPreview" @input="updateParentData" @focus="toggleDelBtn('show')" :value="value" @blur="toggleDelBtn('hide')" type="textarea" :autosize="true"></el-input>
             <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" >
                 <span v-show="closeBtnShow" class="span-c-red-close" @click="delItem">
                     <svg class="icon" aria-hidden="true">
@@ -10,6 +10,7 @@ Vue.component("del-btn-textarea", {
                     </svg>
                 </span>
             </transition>
+            <div class="print-div"></div>
         </div>
     `,
     data() {
@@ -19,6 +20,7 @@ Vue.component("del-btn-textarea", {
     },
     methods: {
         toggleDelBtn(status) {
+            if (this.isPreview) {return}
             if (status === "show") {
                 this.closeBtnShow = true
             } else {

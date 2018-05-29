@@ -1,4 +1,5 @@
 .resume .top-colorpart, .resume .bottom-colorpart {height: 80px;background-color: #409EFF;position: relative;}
+.resume .bottom-colorpart {height: 30px;}
 .resume .top-colorpart .whitepart {position: absolute;width: 40%;height: 40px;color: white;bottom: 0;}
 .resume .top-colorpart .whitepart:before, .resume .top-colorpart .whitepart:after, .resume .bottom-colorpart .whitepart:before, .resume .bottom-colorpart .whitepart:after {content: '';position:absolute;top: 0;}
 .resume .top-colorpart .whitepart:before {left: 0;width: calc(100% - 50px);height: 40px;background-color: currentColor;}
@@ -22,7 +23,7 @@
 
 .importantList {padding: 50px 0;}
 .important-contenrt-wrapper {display: flex;}
-.importantList .important-contenrt-wrapper + .important-contenrt-wrapper {margin-top: 16px;}
+.importantList .important-contenrt-wrapper + .important-contenrt-wrapper {margin-top: 32px;}
 .importantList .important-contenrt-wrapper .titleWrapper {width: 30%;display: flex;align-items: center;padding-left: 25px;flex-shrink: 0;}
 .importantList .important-contenrt-wrapper .titleWrapper .svg-circle-wrapper {border: 3px solid #409EFF;border-radius: 50%;padding: 10px;}
 .importantList .important-contenrt-wrapper .titleWrapper .svg-circle-wrapper > svg {width: 45px;height: 45px;fill:#409EFF;}
@@ -43,3 +44,10 @@
 .resume .span-c-red-close > svg, .resume .span-c-green-add > svg {width: 20px;height: 20px;}
 .resume .span-c-green-add {position: absolute;right: 0;top: 50%;transform: translateY(-50%);}
 .resume .div-c-projectItem {position: relative;display: flex;align-items: center;}
+
+.resume .el-input.is-disabled .el-input__inner,.el-textarea.is-disabled .el-textarea__inner {border: none;color: black;background-color: white;cursor: text;}
+.resume .target-job .el-input.is-disabled .el-input__inner {color:#409EFF;}
+.resume .infobar .el-input.is-disabled .el-input__inner {background-color:transparent;color: white;}
+
+
+[v-cloak] {display: none!important;}

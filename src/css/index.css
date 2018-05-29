@@ -19,4 +19,8 @@
 #app aside .ul-c-checkboxGroup label + label {margin-top: 10px;}
 
 .login-info {margin-bottom: 10px;}
-#app .resume {flex-grow: 1;margin-left: 32px;overflow: auto;}
+#app .resume {flex-grow: 1;overflow: auto;}
+#app .resume.leftMargin {margin-left: 32px;}
+
+.print-div {display: none;}
+.absolute-right {position: absolute;top: 50%;transform: translateY(-50%);right: 16px;}

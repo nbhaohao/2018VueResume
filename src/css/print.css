@@ -1,1 +1,6 @@
 #app aside {display: none;}
+#app {height: auto;display: flex;overflow: auto;}
+.print-div {display: block;}
+.el-textarea, .div-c-projectItem {display: none;}
+.importantList .important-contenrt-wrapper + .important-contenrt-wrapper {margin-top: 100px;}
+.div-c-projectItem + .div-c-projectItem {margin-top: 30px;}

@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="./src/css/index.css">
     <link rel="stylesheet" href="./src/css/resume.css">
     <link rel="stylesheet" href="./src/css/register.css">
-    <link rel="stylesheet" media="print" href="./src/css/print.css" />
+    <link rel="stylesheet" media="print" href="./src/css/print.css">
 </head>
 <body>
-    <div id="app">
-        <aside-bar :check-status="resume.moduleCheckGroup" @login-out="loginOut" @show-dialog="showDialog" v-bind:is-login="isLogin" v-bind:user-name="currentUser.email"></aside-bar>
-        <resume-wrapper :resume="resume" @update-resume="updateResume"></resume-wrapper>
+    <div id="app" v-loading.fullscreen.lock="fullscreenLoading">
+        <aside-bar v-clock v-if="!isPreView" :check-status="resume.moduleCheckGroup" @login-out="loginOut" @show-dialog="showDialog" v-bind:is-login="isLogin" v-bind:user-name="currentUser.email"></aside-bar>
+        <resume-wrapper :is-preview="isPreView" :class="{leftMargin: !isPreView}" :animation-flag="animationFlag" :resume="resume" @update-resume="updateResume"></resume-wrapper>
         <register-dialog @register-event="registerHandler" class="register-dialog" v-bind:register="registerDialog" @hide-dialog="hideDialog" @show-dialog="showDialog"></register-dialog>
         <login-dialog @login-event="loginEvent" class="login-dialog" v-bind:login="loginDialog" @hide-dialog="hideDialog" @show-dialog="showDialog"></login-dialog>
     </div>
