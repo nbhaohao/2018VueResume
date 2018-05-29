@@ -7,158 +7,26 @@
     <link rel="stylesheet" href="./vendor/css/element.css">
     <link rel="stylesheet" href="./src/css/index.css">
     <link rel="stylesheet" href="./src/css/resume.css">
+    <link rel="stylesheet" href="./src/css/register.css">
+    <link rel="stylesheet" media="print" href="./src/css/print.css" />
 </head>
 <body>
     <div id="app">
-        <aside>
-            <div class="inner">
-                <p class="svg-wrapper">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-centericresume"></use>
-                    </svg>
-                    <span>您还没有登录</span>
-                </p>
-                <ul class="controls-btns">
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-print"></use>
-                        </svg>
-                        <span>打印</span>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-baocun"></use>
-                        </svg>
-                        <span>保存</span>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-theme"></use>
-                        </svg>
-                        <span>更换主题</span>
-                    </li>
-                    <li>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-share"></use>
-                        </svg>
-                        <span>分享</span>
-                    </li>
-                </ul>
-                <ul class="ul-c-checkboxGroup">
-                    <el-checkbox label="主要技能" border size="medium"></el-checkbox>
-                    <el-checkbox label="项目经验" border size="medium"></el-checkbox>
-                    <el-checkbox label="工作经历" border size="medium"></el-checkbox>
-                    <el-checkbox label="兴趣爱好" border size="medium"></el-checkbox>
-                    <el-checkbox label="教育背景" border size="medium"></el-checkbox>
-                </ul>
-                <div class="bottom">
-                    <!--<el-button type="danger" round>退出</el-button>-->
-                    <el-button type="success" round>注册/登录</el-button>
-                </div>
-            </div>
-        </aside>
-        <div class="resume">
-            <div class="top-colorpart">
-                <div class="whitepart"></div>
-            </div>
-            <div class="jobTarget">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-user"></use>
-                </svg>
-                <div class="userInfo">
-                    <h2>张子浩</h2>
-                    <span class="target-job">求职意向：前端开发工程师</span>
-                </div>
-            </div>
-            <div class="infobar">
-                <span class="birthday">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-day"></use>
-                    </svg>
-                    <span class="info-text">1996年7月10日</span>
-                </span>
-                <span class="phone">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-phone"></use>
-                    </svg>
-                    <span class="info-text">13780000992</span>
-                </span>
-                <span class="email">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-mail"></use>
-                    </svg>
-                    <span class="info-text">nbhaohao@163.com</span>
-                </span>
-                <span class="gender">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-gender"></use>
-                    </svg>
-                    <span class="info-text">男</span>
-                </span>
-            </div>
-            <div class="importantList">
-                <div class="skills important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-skills"></use>
-                            </svg>
-                        </div>
-                        <h3>主要技能</h3>
-                    </div>
-                    <div class="content-wrapper"></div>
-                </div>
-                <div class="project important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-project"></use>
-                            </svg>
-                        </div>
-                        <h3>项目经验</h3>
-                    </div>
-                    <div class="content-wrapper">你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好你好，我好，大家好</div>
-                </div>
-                <div class="job important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-job"></use>
-                            </svg>
-                        </div>
-                        <h3>工作经历</h3>
-                    </div>
-                    <div class="content-wrapper"></div>
-                </div>
-                <div class="hobby important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-hobby"></use>
-                            </svg>
-                        </div>
-                        <h3>兴趣爱好</h3>
-                    </div>
-                    <div class="content-wrapper"></div>
-                </div>
-                <div class="study important-contenrt-wrapper">
-                    <div class="titleWrapper">
-                        <div class="svg-circle-wrapper">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-study"></use>
-                            </svg>
-                        </div>
-                        <h3>教育背景</h3>
-                    </div>
-                    <div class="content-wrapper"></div>
-                </div>
-            </div>
-        </div>
+        <aside-bar @login-out="loginOut" @show-dialog="showDialog" v-bind:is-login="isLogin" v-bind:user-name="currentUser.email"></aside-bar>
+        <resume-wrapper :resume="resume" @update-resume="updateResume"></resume-wrapper>
+        <register-dialog @register-event="registerHandler" class="register-dialog" v-bind:register="registerDialog" @hide-dialog="hideDialog" @show-dialog="showDialog"></register-dialog>
+        <login-dialog @login-event="loginEvent" class="login-dialog" v-bind:login="loginDialog" @hide-dialog="hideDialog" @show-dialog="showDialog"></login-dialog>
     </div>
-    <script src="//at.alicdn.com/t/font_684735_7kzzul8ytrvvlsor.js"></script>
-<script src="./vendor/js/av-min.js"></script>
-<script src="./vendor/js/vue.min.js"></script>
-<script src="./vendor/js/element.js"></script>
+    <script src="//at.alicdn.com/t/font_684735_2azn3iyrl7vte29.js"></script>
+    <script src="./src/js/formTools.js"></script>
+    <script src="./vendor/js/av-min.js"></script>
+    <script src="./vendor/js/vue.min.js"></script>
+    <script src="./vendor/js/element.js"></script>
+    <script src="./src/initJS/av.js"></script>
+    <script src="./src/js/registerDialog.js"></script>
+    <script src="./src/js/loginDialog.js"></script>
+    <script src="./src/js/aside-component.js"></script>
+    <script src="./src/js/resume-component.js"></script>
     <script src="./src/js/app.js"></script>
 </body>
 </html>

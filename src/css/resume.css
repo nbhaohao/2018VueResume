@@ -1,25 +1,45 @@
-.resume .top-colorpart {height: 60px;background-color: #409EFF;position: relative;}
+.resume .top-colorpart, .resume .bottom-colorpart {height: 80px;background-color: #409EFF;position: relative;}
 .resume .top-colorpart .whitepart {position: absolute;width: 40%;height: 40px;color: white;bottom: 0;}
-.resume .top-colorpart .whitepart:before, .resume .top-colorpart .whitepart:after {content: '';position:absolute;top: 0;}
+.resume .top-colorpart .whitepart:before, .resume .top-colorpart .whitepart:after, .resume .bottom-colorpart .whitepart:before, .resume .bottom-colorpart .whitepart:after {content: '';position:absolute;top: 0;}
 .resume .top-colorpart .whitepart:before {left: 0;width: calc(100% - 50px);height: 40px;background-color: currentColor;}
-.resume .top-colorpart .whitepart:after {  right: 0;  border: 25px solid;border-color: transparent transparent currentColor currentColor;}
+.resume .top-colorpart .whitepart:after {right: 0;border: 25px solid;border-color: transparent transparent currentColor currentColor;}
+.resume .bottom-colorpart .whitepart {position: absolute;width: 40%;height: 40px;color: white;top: 0;}
+.resume .bottom-colorpart .whitepart:before  {left: 0;width: calc(100% - 50px);height: 60px;background-color: currentColor;}
+.resume .bottom-colorpart .whitepart:after {right: -10px;bottom:0;border: 30px solid;border-color: currentColor transparent transparent currentColor;}
 
-.resume .jobTarget {min-height: 200px;display: flex;align-items: center;justify-content: space-between;}
-.resume .jobTarget > svg {fill: #409EFF;width: 100px;height: 100px;}
-.resume .jobTarget .userInfo {margin-right: 20%;}
+.resume .jobTarget {min-height: 200px;display: flex;align-items: center;justify-content: space-between;padding-left: 50px;}
+.resume .jobTarget .svg-wrapper {width: 40%;}
+.resume .jobTarget .svg-wrapper > svg {fill: #409EFF;width: 100px;height: 100px;}
+.resume .jobTarget .userInfo {width: 60%;padding-right: 20px;}
 .resume .jobTarget .userInfo h2 {font-size: 45px;margin-bottom: 10px;}
-.resume .jobTarget .userInfo .target-job {color: #409EFF;}
+.resume .jobTarget .userInfo .target-job {color: #409EFF;display: flex;}
 
-.resume .infobar {padding: 10px;background-color: #409EFF;display: flex;}
-.resume .infobar > span {display: inline-flex;width: 25%;align-items: center;justify-content: center;}
-.resume .infobar > span .info-text {color: white;margin-left: 4px;}
+.resume .infobar {padding: 10px;background-color: #409EFF;display: flex;justify-content: space-around;}
+.resume .infobar > span {display: inline-flex;align-items: center;justify-content: center;}
 .resume .infobar .icon {fill: white;width: 24px;height: 24px;}
 
-.importantList {padding-top: 30px;}
+.resume .infobar .info-text .el-input__inner {background-color: transparent;color: white;padding: 0 4px;font-size: 16px;}
+
+.importantList {padding: 50px 0;}
 .important-contenrt-wrapper {display: flex;}
 .importantList .important-contenrt-wrapper + .important-contenrt-wrapper {margin-top: 16px;}
-.importantList .important-contenrt-wrapper .titleWrapper {width: 28%;display: flex;align-items: center;padding-left: 50px;flex-shrink: 0;}
+.importantList .important-contenrt-wrapper .titleWrapper {width: 30%;display: flex;align-items: center;padding-left: 25px;flex-shrink: 0;}
 .importantList .important-contenrt-wrapper .titleWrapper .svg-circle-wrapper {border: 3px solid #409EFF;border-radius: 50%;padding: 10px;}
 .importantList .important-contenrt-wrapper .titleWrapper .svg-circle-wrapper > svg {width: 45px;height: 45px;fill:#409EFF;}
 .importantList .important-contenrt-wrapper .titleWrapper > h3 {margin-left: 6px;}
 .importantList .important-contenrt-wrapper .content-wrapper {flex-grow: 1;}
+
+.resume .name-input {margin-bottom:10px;}
+.resume .name-input > input {font-size:45px;font-weight:bold;height:50px;line-height:50px;color:black;}
+.resume .target-job .el-input__inner {color: #409EFF;font-size: 17px;}
+
+.importantList .projectList, .importantList .jobsList {flex-grow: 1;padding-right: 30px;}
+
+.resume .el-textarea__inner {resize: none;color: black;font-size: 16px;}
+.resume .el-input__inner, .resume .el-input__inner:hover, .resume .el-textarea__inner, .resume .el-textarea__inner:hover {border-color: transparent;}
+.resume .el-input__inner:focus, .resume .el-textarea__inner:focus {border-color:#409EFF;}
+
+.resume .span-c-red-close {cursor: pointer;margin-left: 4px;display: none;}
+.resume .span-c-red-close.active {display: inline-block;}
+.resume .span-c-red-close > svg {width: 20px;height: 20px;}
+.resume .div-c-projectItem {position: relative;display: flex;align-items: center;}
