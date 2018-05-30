@@ -24,7 +24,7 @@
             },
             defaultResume: {
                 name: "姓名",
-                targetJob: "前端开发",
+                targetJob: "求职意向：前端开发",
                 birthday: "1996年7月10日",
                 phone: "13xxxxxxxxx",
                 email: "nbhaohao@163.com",

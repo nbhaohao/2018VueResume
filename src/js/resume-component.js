@@ -5,7 +5,7 @@
             <div class="resume">
             <div class="top-colorpart">
                 <div class="whitepart"></div>
-                <el-button @click="window.location.href = 'https://nbhaohao.github.io/2018VueResume/index.html'" v-if='isPreview' class="absolute-right" v-clock type="success" round>返回主页</el-button>
+                <el-button @click="window.location.href = '/2018VueResume/index.html'" v-if='isPreview' class="absolute-right" v-clock type="success" round>返回主页</el-button>
             </div>
             <div class="jobTarget">
                 <div class="svg-wrapper">
