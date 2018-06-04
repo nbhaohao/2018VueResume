@@ -15,7 +15,11 @@
                 </div>
                 <div class="userInfo">
                     <el-input maxlength="4" :disabled="isPreview" class="name-input" :value="resume.name" @input="$emit('update-resume', 'name', $event)"></el-input>
-                    <div class="target-job"><el-input  :disabled="isPreview" maxlength="25" class="" :value="resume.targetJob" @input="$emit('update-resume', 'targetJob', $event)"></el-input></div>
+                    <div class="target-job">
+                    <el-input  :disabled="isPreview" class="" :value="resume.targetJob" @input="$emit('update-resume', 'targetJob', $event)" :autosize="true" type="textarea">
+                    </el-input>
+                    <div class="print-div"></div>
+                    </div>
                 </div>
             </div>
             <div class="infobar">
